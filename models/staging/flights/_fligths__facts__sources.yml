@@ -6,6 +6,26 @@ sources:
         description: Места в самолете
       - name: flights
         description: Полеты
+        columns:
+          - name: flight_id
+          - name: flight_no
+          - name: scheduled_departure
+          - name: scheduled_arrival
+          - name: departure_airport
+          - name: arrival_airport
+          - name: status
+          - name: aircraft_code
+          - name: actual_departure
+          - name: actual_arrival
+        freshness:
+          warn_after:
+            count: 600000
+            period: hour
+          error_after:
+            count: 10000
+            period: day
+          filter: current_timestamp::date - actual_departure::date < 30000
+        loaded_at_field: actual_departure::timestamp
       - name: ticket_flights
         description: Перелеты привязанные к билету
       - name: tickets
