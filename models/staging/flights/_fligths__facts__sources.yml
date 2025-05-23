@@ -1,0 +1,12 @@
+sources:
+  - name: demo_src 
+    description: Данные из БД авиаперелетов
+    tables:
+      - name: boarding_passes
+        description: Места в самолете
+      - name: flights
+        description: Полеты
+      - name: ticket_flights
+        description: Перелеты привязанные к билету
+      - name: tickets
+        description: Билеты
