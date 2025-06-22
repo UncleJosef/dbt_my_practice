@@ -32,5 +32,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_my_practice:
     # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+      +meta:
+        owner: "Kuntsevich"
+        year_created: 2025
+        status: in_dev
+    #example:
+    #  +materialized: view
+seeds:
+  dbt_my_practice:
+    schema: seeds
